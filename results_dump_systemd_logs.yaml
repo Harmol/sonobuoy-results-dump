@@ -1,0 +1,14 @@
+name: systemd-logs
+status: passed
+meta:
+  type: summary
+items:
+- name: my-node
+  status: passed
+  meta:
+    type: node
+  items:
+  - name: systemd_logs
+    status: passed
+    meta:
+      file: results/my-node/systemd_logs

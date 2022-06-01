@@ -1,0 +1,79 @@
+node_health:
+  total_nodes: 1
+  healthy_nodes: 1
+  details:
+  - name: my-node
+    healthy: true
+    ready: "True"
+    reason: KubeletReady
+    message: kubelet is posting ready status. AppArmor enabled
+pod_health:
+  total_nodes: 12
+  healthy_nodes: 11
+  details:
+  - name: send-events-0bec7214-386f-4a6c-bc50-e0ebe436f9d2
+    healthy: true
+    ready: Ready
+    namespace: events-2324
+  - name: coredns-f9fd979d6-c9tcq
+    healthy: true
+    ready: Ready
+    namespace: kube-system
+  - name: coredns-f9fd979d6-lrzv9
+    healthy: true
+    ready: Ready
+    namespace: kube-system
+  - name: etcd-my-node
+    healthy: true
+    ready: Ready
+    namespace: kube-system
+  - name: kube-apiserver-my-node
+    healthy: true
+    ready: Ready
+    namespace: kube-system
+  - name: kube-controller-manager-my-node
+    healthy: true
+    ready: Ready
+    namespace: kube-system
+  - name: kube-flannel-ds-lv5nv
+    healthy: true
+    ready: Ready
+    namespace: kube-system
+  - name: kube-proxy-4pwdh
+    healthy: true
+    ready: Ready
+    namespace: kube-system
+  - name: kube-scheduler-my-node
+    healthy: true
+    ready: Ready
+    namespace: kube-system
+  - name: sonobuoy
+    healthy: true
+    ready: Ready
+    namespace: sonobuoy
+  - name: sonobuoy-e2e-job-8e0fe1b369e84dc8
+    healthy: false
+    ready: "False"
+    reason: ContainersNotReady
+    message: 'containers with unready status: [e2e sonobuoy-worker]'
+    namespace: sonobuoy
+  - name: sonobuoy-systemd-logs-daemon-set-94b9056f9d9d46f8-7m798
+    healthy: true
+    ready: Ready
+    namespace: sonobuoy
+api_version: v1.19.16
+error_summary:
+  Errors:
+    podlogs/kube-system/kube-apiserver-my-node/logs/kube-apiserver.txt: 16728
+    podlogs/kube-system/kube-controller-manager-my-node/logs/kube-controller-manager.txt: 923
+    podlogs/kube-system/kube-scheduler-my-node/logs/kube-scheduler.txt: 58
+    podlogs/sonobuoy/sonobuoy-e2e-job-8e0fe1b369e84dc8/logs/e2e.txt: 626
+  Warnings:
+    podlogs/kube-system/kube-apiserver-my-node/logs/kube-apiserver.txt: 68
+    podlogs/kube-system/kube-controller-manager-my-node/logs/kube-controller-manager.txt: 40
+    podlogs/kube-system/kube-flannel-ds-lv5nv/logs/kube-flannel.txt: 1
+    podlogs/kube-system/kube-proxy-4pwdh/logs/kube-proxy.txt: 1
+    podlogs/kube-system/kube-scheduler-my-node/logs/kube-scheduler.txt: 16
+    podlogs/sonobuoy/sonobuoy-e2e-job-8e0fe1b369e84dc8/logs/e2e.txt: 21
+    podlogs/sonobuoy/sonobuoy/logs/kube-sonobuoy.txt: 7
+

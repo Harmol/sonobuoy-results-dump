@@ -1,0 +1,39 @@
+Plugin: e2e
+Status: failed
+Total: 5484
+Passed: 300
+Failed: 3
+Skipped: 5181
+
+Failed tests:
+[sig-apps] Daemon set [Serial] should rollback without unnecessary restarts [Conformance]
+[sig-scheduling] SchedulerPreemption [Serial] validates lower priority pod preemption by critical pod [Conformance]
+[sig-scheduling] SchedulerPreemption [Serial] validates basic preemption works [Conformance]
+
+Plugin: systemd-logs
+Status: passed
+Total: 1
+Passed: 1
+Failed: 0
+Skipped: 0
+
+Run Details:
+API Server version: v1.19.16
+Node health: 1/1 (100%)
+Pods health: 11/12 (91%)
+Details for failed pods:
+sonobuoy/sonobuoy-e2e-job-8e0fe1b369e84dc8 Ready:False: ContainersNotReady: containers with unready status: [e2e sonobuoy-worker]
+Errors detected in files:
+Errors:
+16728 podlogs/kube-system/kube-apiserver-my-node/logs/kube-apiserver.txt
+  923 podlogs/kube-system/kube-controller-manager-my-node/logs/kube-controller-manager.txt
+  626 podlogs/sonobuoy/sonobuoy-e2e-job-8e0fe1b369e84dc8/logs/e2e.txt
+   58 podlogs/kube-system/kube-scheduler-my-node/logs/kube-scheduler.txt
+Warnings:
+68 podlogs/kube-system/kube-apiserver-my-node/logs/kube-apiserver.txt
+40 podlogs/kube-system/kube-controller-manager-my-node/logs/kube-controller-manager.txt
+21 podlogs/sonobuoy/sonobuoy-e2e-job-8e0fe1b369e84dc8/logs/e2e.txt
+16 podlogs/kube-system/kube-scheduler-my-node/logs/kube-scheduler.txt
+ 7 podlogs/sonobuoy/sonobuoy/logs/kube-sonobuoy.txt
+ 1 podlogs/kube-system/kube-flannel-ds-lv5nv/logs/kube-flannel.txt
+ 1 podlogs/kube-system/kube-proxy-4pwdh/logs/kube-proxy.txt

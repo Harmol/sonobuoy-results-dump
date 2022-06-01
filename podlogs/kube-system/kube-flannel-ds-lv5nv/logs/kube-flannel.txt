@@ -1,0 +1,38 @@
+I0530 01:39:16.602447       1 main.go:207] CLI flags config: {etcdEndpoints:http://127.0.0.1:4001,http://127.0.0.1:2379 etcdPrefix:/coreos.com/network etcdKeyfile: etcdCertfile: etcdCAFile: etcdUsername: etcdPassword: version:false kubeSubnetMgr:true kubeApiUrl: kubeAnnotationPrefix:flannel.alpha.coreos.com kubeConfigFile: iface:[] ifaceRegex:[] ipMasq:true ifaceCanReach: subnetFile:/run/flannel/subnet.env publicIP: publicIPv6: subnetLeaseRenewMargin:60 healthzIP:0.0.0.0 healthzPort:0 iptablesResyncSeconds:5 iptablesForwardRules:true netConfPath:/etc/kube-flannel/net-conf.json setNodeNetworkUnavailable:true}
+W0530 01:39:16.608985       1 client_config.go:614] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0530 01:39:17.008399       1 kube.go:121] Waiting 10m0s for node controller to sync
+I0530 01:39:17.009891       1 kube.go:398] Starting kube subnet manager
+I0530 01:39:18.067827       1 kube.go:128] Node controller sync successful
+I0530 01:39:18.070259       1 main.go:227] Created subnet manager: Kubernetes Subnet Manager - my-node
+I0530 01:39:18.070268       1 main.go:230] Installing signal handlers
+I0530 01:39:18.072035       1 main.go:463] Found network config - Backend type: vxlan
+I0530 01:39:18.111121       1 match.go:195] Determining IP address of default interface
+I0530 01:39:18.111740       1 match.go:248] Using interface with name enp0s3 and address 10.0.2.15
+I0530 01:39:18.111808       1 match.go:270] Defaulting external address to interface address (10.0.2.15)
+I0530 01:39:18.111922       1 vxlan.go:138] VXLAN config: VNI=1 Port=0 GBP=false Learning=false DirectRouting=false
+I0530 01:39:18.159354       1 kube.go:351] Setting NodeNetworkUnavailable
+I0530 01:39:18.209844       1 main.go:412] Current network or subnet (10.244.0.0/16, 10.244.0.0/24) is not equal to previous one (0.0.0.0/0, 0.0.0.0/0), trying to recycle old iptables rules
+I0530 01:39:19.097131       1 iptables.go:255] Deleting iptables rule: -s 0.0.0.0/0 -d 0.0.0.0/0 -m comment --comment flanneld masq -j RETURN
+I0530 01:39:19.119605       1 iptables.go:255] Deleting iptables rule: -s 0.0.0.0/0 ! -d 224.0.0.0/4 -m comment --comment flanneld masq -j MASQUERADE --random-fully
+I0530 01:39:19.121087       1 iptables.go:255] Deleting iptables rule: ! -s 0.0.0.0/0 -d 0.0.0.0/0 -m comment --comment flanneld masq -j RETURN
+I0530 01:39:19.122490       1 iptables.go:255] Deleting iptables rule: ! -s 0.0.0.0/0 -d 0.0.0.0/0 -m comment --comment flanneld masq -j MASQUERADE --random-fully
+I0530 01:39:19.197711       1 main.go:341] Setting up masking rules
+I0530 01:39:19.199660       1 main.go:362] Changing default FORWARD chain policy to ACCEPT
+I0530 01:39:19.199720       1 main.go:375] Wrote subnet file to /run/flannel/subnet.env
+I0530 01:39:19.199727       1 main.go:379] Running backend.
+I0530 01:39:19.199735       1 main.go:400] Waiting for all goroutines to exit
+I0530 01:39:19.199749       1 vxlan_network.go:61] watching for new subnet leases
+I0530 01:39:19.300196       1 iptables.go:231] Some iptables rules are missing; deleting and recreating rules
+I0530 01:39:19.300213       1 iptables.go:255] Deleting iptables rule: -s 10.244.0.0/16 -d 10.244.0.0/16 -m comment --comment flanneld masq -j RETURN
+I0530 01:39:19.306287       1 iptables.go:255] Deleting iptables rule: -s 10.244.0.0/16 ! -d 224.0.0.0/4 -m comment --comment flanneld masq -j MASQUERADE --random-fully
+I0530 01:39:19.306910       1 iptables.go:231] Some iptables rules are missing; deleting and recreating rules
+I0530 01:39:19.306918       1 iptables.go:255] Deleting iptables rule: -s 10.244.0.0/16 -m comment --comment flanneld forward -j ACCEPT
+I0530 01:39:19.402380       1 iptables.go:255] Deleting iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/24 -m comment --comment flanneld masq -j RETURN
+I0530 01:39:19.405597       1 iptables.go:255] Deleting iptables rule: -d 10.244.0.0/16 -m comment --comment flanneld forward -j ACCEPT
+I0530 01:39:19.497222       1 iptables.go:255] Deleting iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/16 -m comment --comment flanneld masq -j MASQUERADE --random-fully
+I0530 01:39:19.501382       1 iptables.go:243] Adding iptables rule: -s 10.244.0.0/16 -m comment --comment flanneld forward -j ACCEPT
+I0530 01:39:19.502833       1 iptables.go:243] Adding iptables rule: -s 10.244.0.0/16 -d 10.244.0.0/16 -m comment --comment flanneld masq -j RETURN
+I0530 01:39:19.599555       1 iptables.go:243] Adding iptables rule: -d 10.244.0.0/16 -m comment --comment flanneld forward -j ACCEPT
+I0530 01:39:19.611104       1 iptables.go:243] Adding iptables rule: -s 10.244.0.0/16 ! -d 224.0.0.0/4 -m comment --comment flanneld masq -j MASQUERADE --random-fully
+I0530 01:39:19.704055       1 iptables.go:243] Adding iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/24 -m comment --comment flanneld masq -j RETURN
+I0530 01:39:19.798846       1 iptables.go:243] Adding iptables rule: ! -s 10.244.0.0/16 -d 10.244.0.0/16 -m comment --comment flanneld masq -j MASQUERADE --random-fully

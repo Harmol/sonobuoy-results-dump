@@ -1,0 +1,18 @@
+I0530 01:38:57.387394       1 node.go:136] Successfully retrieved node IP: 10.0.2.15
+I0530 01:38:57.388420       1 server_others.go:142] kube-proxy node IP is an IPv4 address (10.0.2.15), assume IPv4 operation
+W0530 01:38:59.920138       1 server_others.go:584] Unknown proxy mode "", assuming iptables proxy
+I0530 01:38:59.920321       1 server_others.go:185] Using iptables Proxier.
+I0530 01:38:59.920505       1 server.go:650] Version: v1.19.16
+I0530 01:38:59.921779       1 conntrack.go:100] Set sysctl 'net/netfilter/nf_conntrack_max' to 131072
+I0530 01:38:59.921894       1 conntrack.go:52] Setting nf_conntrack_max to 131072
+I0530 01:38:59.922150       1 conntrack.go:83] Setting conntrack hashsize to 32768
+I0530 01:38:59.937553       1 conntrack.go:100] Set sysctl 'net/netfilter/nf_conntrack_tcp_timeout_established' to 86400
+I0530 01:38:59.937593       1 conntrack.go:100] Set sysctl 'net/netfilter/nf_conntrack_tcp_timeout_close_wait' to 3600
+I0530 01:39:00.134380       1 config.go:315] Starting service config controller
+I0530 01:39:00.134763       1 config.go:224] Starting endpoint slice config controller
+I0530 01:39:00.234351       1 shared_informer.go:240] Waiting for caches to sync for service config
+I0530 01:39:00.235455       1 shared_informer.go:240] Waiting for caches to sync for endpoint slice config
+I0530 01:39:00.403943       1 shared_informer.go:247] Caches are synced for endpoint slice config 
+I0530 01:39:00.404032       1 shared_informer.go:247] Caches are synced for service config 
+I0530 07:26:04.305961       1 trace.go:205] Trace[1566925900]: "iptables Monitor CANARY check" (30-May-2022 07:25:59.931) (total time: 3562ms):
+Trace[1566925900]: [3.562995693s] [3.562995693s] END
